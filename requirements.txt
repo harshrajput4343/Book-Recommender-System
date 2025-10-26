@@ -2,4 +2,6 @@ scikit-learn
 pandas
 numpy
 ipykernel
+pyYAML
+streamlit
 -e .
