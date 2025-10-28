@@ -192,12 +192,12 @@ Use `notebook/research.ipynb` to explore the Book-Crossing data, test transforma
 
 ```dockerfile
 # Example Dockerfile (sketch)
-FROM python:3.10-slim
+FROM python:3.7-slim-buster
 WORKDIR /app
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
-CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0"]
+ENTRYPOINT [ "streamlit", "run", "app.py", "--server.port=8501", "--server.address", "0.0.0.0" ]
 ```
 
 Build and run:
