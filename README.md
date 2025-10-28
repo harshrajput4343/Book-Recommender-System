@@ -1,5 +1,7 @@
 ## Book Recommender System
 
+**LIVE LINK : http://65.0.128.142:8501/**
+
 A clean, config-first scaffold for building a production-ready Book Recommender System. The repository is set up with a modular pipeline (ingestion → validation → transformation → model training), a local installable package (`books_recommender`), and a place for a Streamlit app. It also ships with the Book-Crossing dataset CSVs for experimentation.
 
 This project is currently a scaffold: core stage files and `app.py` are intentionally empty so you can implement the logic step-by-step. Use this as a starting point for your own recommender.
