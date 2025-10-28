@@ -232,6 +232,31 @@ if __name__ == "__main__":
 If you already have the CSVs checked in (they are included under `notebook/`), you can skip this step.
 
 ---
+## EC2 quick deploy (Ubuntu)
+
+```bash
+# SSH into your 8 GiB RAM instance (e.g., t3.large), then:
+sudo apt-get update -y
+sudo apt-get install -y python3-venv python3-pip git
+
+git clone https://github.com/<your-user>/<your-repo>.git
+cd <your-repo>
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Run Streamlit and expose it publicly
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+```
+
+- Open Security Group inbound rule for TCP 8501.
+- Access the app at: http://<ec2-public-ip>:8501
+- Optional (stability on small instances): add 2G swap
+```bash
+sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile
+sudo mkswap /swapfile && sudo swapon /swapfile
 
 ## Development tips
 
